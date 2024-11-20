@@ -33,8 +33,11 @@ typedef struct	s_data
 	t_img	*img;
 }				t_data;
 
-// main.c 
-void		ft_mlx_pixel_put(t_img *img, int x, int y, int color);
+// draw.c
+void	ft_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	ft_mlx_draw(t_data *data);
+
+// main.c
 t_data		*free_data(t_data *data);
 int			main(void);
 
@@ -45,7 +48,13 @@ t_data		*init_data(char	*titile);
 int			close_win(void *vars);
 void		ft_mlx_hook(t_data *data);
 
+// mouse.c
+int	mousedown_hook(int button, int x, int y, void *param);
+int	mouseup_hook(int button, int x, int y, void *param);
+int	mousemove_hook(int x, int y, void *param);
+
 // keyboard.c
+int	keyup_hook(int key_code, void *param);
 int	key_hook(int key_code, void *param);
 
 // color.c
