@@ -32,6 +32,7 @@ else
 endif
 
 INCLUDES	=	-I ./includes -I $(LIBFT_DIR)/includes -I $(OS_DIR)/includes -I $(MLX_DIR)
+MLX_INCLUDES=	-lXext -lXext -lX11 -lm -lz
 
 RESET		=	\033[0m
 BOLD		=	\033[1m
@@ -51,7 +52,7 @@ $(NAME): $(LIBFT_A) $(MLX_A) $(OBJS)
 	@echo "$(BOLD)$(LIGHT_BLUE)Create $(LIBFT)...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile now...$(RESET)"
-	@$(CC) $(CFLAG) $(OBJS) $(MLX_A) $(LIBFT_DIR)/$(LIBFT_A) $(INCLUDES) -lXext -lX11 -lz -o $(NAME)
+	@$(CC) $(CFLAG) $(OBJS) $(MLX_A) $(LIBFT_DIR)/$(LIBFT_A) $(INCLUDES) $(MLX_INCLUDES) -o $(NAME)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME) Complete!$(RESET)"
 
 .c.o:
