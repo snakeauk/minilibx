@@ -26,15 +26,15 @@ int		main(void)
 		for (int y = 10; y < 100; y++)
 		{
 			if (x <= 100)
-				ft_mlx_pixel_put(&img, x, y, 0x00FF0000);
+				ft_mlx_pixel_put(&img, x, y, color_create_trgb(0, 255, 0, 0));
 			else if (x <= 200)
-				ft_mlx_pixel_put(&img, x, y, 0x0000FF00);
+				ft_mlx_pixel_put(&img, x, y, color_create_trgb(0, 0, 255, 0));
 			else if (x <= 300)
-				ft_mlx_pixel_put(&img, x, y, 0x000000FF);
+				ft_mlx_pixel_put(&img, x, y, color_create_trgb(0, 0, 0, 255));
 			else if (x <= 400)
-				ft_mlx_pixel_put(&img, x, y, 0x00FFFF00);
+				ft_mlx_pixel_put(&img, x, y, color_create_trgb(0, 255, 255, 0));
 			else
-				ft_mlx_pixel_put(&img, x, y, 0x00FF00FF);
+				ft_mlx_pixel_put(&img, x, y, color_create_trgb(0, 255, 0, 255));
 		}
 	}
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
