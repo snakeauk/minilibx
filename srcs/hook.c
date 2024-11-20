@@ -15,6 +15,11 @@ int		close_win(void *param)
 
 void	ft_mlx_hook(t_data *data)
 {
-	mlx_hook(data->win, 2, 1, key_hook, data);
-	mlx_hook(data->win, 17, 0, close_win, data);
+	mlx_hook(data->win, KEYDOWN, 1L<<0, key_hook, data);
+	mlx_hook(data->win, KEYUP, 1, key_hook, data);
+	mlx_hook(data->win, MOUSEDOWN, 1, key_hook, data);
+	mlx_hook(data->win, MOUSEUP, 1, key_hook, data);
+	mlx_hook(data->win, MOUSEMOVE, 1, key_hook, data);
+	mlx_hook(data->win, EXPOSE, 1, key_hook, data);
+	mlx_hook(data->win, DESTROY, 1, close_win, data);
 }

@@ -7,8 +7,16 @@
 # include <X11/keysym.h>
 # define KEY_ESC 2
 
-#define WIDTH 1920
-#define HEIGHT 700
+# define WIDTH 1920
+# define HEIGHT 700
+
+# define KEYDOWN 2
+# define KEYUP 3
+# define MOUSEDOWN 4
+# define MOUSEUP 5
+# define MOUSEMOVE 6
+# define EXPOSE 12
+# define DESTROY 17
 
 typedef struct	s_img {
 	void	*img;
@@ -25,7 +33,7 @@ typedef struct	s_data
 	t_img	*img;
 }				t_data;
 
-// main.c
+// main.c 
 void		ft_mlx_pixel_put(t_img *img, int x, int y, int color);
 t_data		*free_data(t_data *data);
 int			main(void);
