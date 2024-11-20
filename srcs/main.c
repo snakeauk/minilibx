@@ -2,9 +2,7 @@
 
 int	main(void)
 {
-	int a = 10;
-	int b = 11;
+	void	*mlx;
 
-	ft_printf("%d %d", a, b);
-	return (0);
+	mlx = mlx_init();
 }

@@ -3,6 +3,8 @@
 
 #include "libft.h"
 #include "ft_printf.h"
+#include <mlx.h>
 
+int main(void);
 
 #endif
