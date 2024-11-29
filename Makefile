@@ -2,7 +2,7 @@ NAME		=	test
 BONUS		=	bonus
 
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	# -Wall -Wextra -Werror
 RM			=	rm -rf
 
 LIBFT		=	libft
@@ -23,16 +23,17 @@ BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Darwin)
 	OS_DIR		=	$(LIBFT_DIR)/mac
-	MLX_DIR		=	$(MLX)
+	MLX_DIR		=	$(MLX)_macos
 	MLX_A		=	$(MLX_DIR)/libmlx.a
+	MFLAGS		=	-framework OpenGL -framework AppKit
 else
 	OS_DIR		=	$(LIBFT_DIR)/linux
 	MLX_DIR		=	$(MLX)-linux
 	MLX_A		=	$(MLX_DIR)/libmlx_Linux.a
+	MFLAGS		=	-lXext -lXext -lX11 -lm -lz
 endif
 
 INCLUDES	=	-I ./includes -I $(LIBFT_DIR)/includes -I $(OS_DIR)/includes -I $(MLX_DIR)
-MLX_INCLUDES=	-lXext -lXext -lX11 -lm -lz
 
 RESET		=	\033[0m
 BOLD		=	\033[1m
@@ -52,7 +53,7 @@ $(NAME): $(LIBFT_A) $(MLX_A) $(OBJS)
 	@echo "$(BOLD)$(LIGHT_BLUE)Create $(LIBFT)...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile now...$(RESET)"
-	@$(CC) $(CFLAG) $(OBJS) $(MLX_A) $(LIBFT_DIR)/$(LIBFT_A) $(INCLUDES) $(MLX_INCLUDES) -o $(NAME)
+	@$(CC) $(CFLAG) $(OBJS) $(MLX_A) $(LIBFT_DIR)/$(LIBFT_A) $(INCLUDES) $(MFLAGS) -o $(NAME)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME) Complete!$(RESET)"
 
 .c.o:

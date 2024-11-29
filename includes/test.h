@@ -4,8 +4,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 #include "mlx.h"
-# include <X11/keysym.h>
-# define KEY_ESC 2
+# include "keysys.h"
 
 # define WIDTH 1920
 # define HEIGHT 700

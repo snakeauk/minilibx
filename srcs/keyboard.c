@@ -8,6 +8,7 @@ int	keyup_hook(int key_code, void *param)
 	t_data	*data;
 
 	data = (t_data *)param;
+	(void *)data;
 	(void)key_code;
 	return (0);
 }
